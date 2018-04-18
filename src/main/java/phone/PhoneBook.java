@@ -11,12 +11,12 @@ public class PhoneBook {
         map.put("Петров П.П.", new ArrayList<>(Arrays.asList("+8 800 2000 700")));
         map.put("петров п.п.", new ArrayList<>(Arrays.asList("+8 800 2000 600")));
         map.put("Сидоров С.С.", new ArrayList<>(Arrays.asList("+8 800 2000 800", "+8 800 2000 900", "+8 800 2000 000")));
+        map.put("Gets D.", new ArrayList<>(Arrays.asList("+4 200 2000 800", "+4 500 2000 000")));
     }
 
 
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in, "UTF-8");
+        Scanner scanner = new Scanner(System.in, "utf-8");
         System.out.println("Enter Full name: ");
         String name = scanner.nextLine();
 
@@ -30,23 +30,21 @@ public class PhoneBook {
             final int[] count = {1};
             map.get(name).forEach(number -> System.out.println((count[0]++) + ". " + number));
         } else {
-            System.out.println("Full name not exist");
+            System.out.println("Full name not found");
         }
     }
 
     public static void printPhoneIgnoreCase(String name) {
         boolean flag = false;
+        final int[] count = {1};
         for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
             if (entry.getKey().equalsIgnoreCase(name)) {
-               entry.getValue().forEach(number -> {
-                    final int[] count = {1};
-                    System.out.println((count[0]++) + ". " + number);
-                });
-               flag = true;
+                entry.getValue().forEach(number -> System.out.println((count[0]++) + ". " + number));
+                flag = true;
             }
         }
         if (!flag) {
-            System.out.println("Full name not exist");
+            System.out.println("Full name not found");
         }
     }
 
