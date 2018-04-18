@@ -2,6 +2,12 @@ package phone;
 
 import java.util.*;
 
+/**
+ * В сентябре 17 года уже делал подобную задачу вот ее код.
+ * тут загвозка была в том что Имена могут быть одинаково и
+ * в случае если они одинаковые печатать и одного и другого номера.
+ *
+ */
 public class Spravochnik {
     private static Map<Person, List<Tel>> personMap = new HashMap<>();
     public static void main(String[] args) {
