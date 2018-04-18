@@ -32,7 +32,9 @@ public class PhoneBookTest {
         System.setErr(null);
     }
 
-
+    /**
+     * checking the usual method for correct data
+     */
     @Test
     public void printPhone() {
         PhoneBook.printPhone(name1);
@@ -41,24 +43,29 @@ public class PhoneBookTest {
         assertEquals(errContent.toString(), outContent.toString());
     }
 
+    /**
+     * checking the ignorecase method for correct data
+     */
     @Test
     public void printPhoneICase() {
         PhoneBook.printPhoneIgnoreCase(name2);
-        System.err.println("1. +8 800 2000 800");
-        System.err.println("2. +8 800 2000 900");
-        System.err.println("3. +8 800 2000 000");
+        printPhoneName3();
         assertEquals(errContent.toString(), outContent.toString());
     }
 
+    /**
+     * checking the usual method for  caseignor correct data
+     */
     @Test
     public void printPhoneIgnoreCase() {
         PhoneBook.printPhoneIgnoreCase(name3);
-        System.err.println("1. +8 800 2000 800");
-        System.err.println("2. +8 800 2000 900");
-        System.err.println("3. +8 800 2000 000");
+        printPhoneName3();
         assertEquals(errContent.toString(), outContent.toString());
     }
 
+    /**
+     * checking the ignore method for incorrect data
+     */
     @Test
     public void printPhoneIgnoreCaseNotFound() {
         PhoneBook.printPhoneIgnoreCase("Kdo toto");
@@ -66,10 +73,22 @@ public class PhoneBookTest {
         assertEquals(errContent.toString(), outContent.toString());
     }
 
+    /**
+     * checking the usual method for incorrect data
+     */
     @Test
     public void printPhoneNotFound() {
         PhoneBook.printPhone("Kdo toto");
         System.err.println(error);
         assertEquals(errContent.toString(), outContent.toString());
+    }
+
+    /**
+     * print Phone for Name3
+     */
+    private void printPhoneName3(){
+        System.err.println("1. +8 800 2000 800");
+        System.err.println("2. +8 800 2000 900");
+        System.err.println("3. +8 800 2000 000");
     }
 }

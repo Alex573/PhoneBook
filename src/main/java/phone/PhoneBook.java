@@ -2,6 +2,9 @@ package phone;
 
 import java.util.*;
 
+/**
+ * Search the phone directory
+ */
 
 public class PhoneBook {
     private static Map<String, ArrayList<String>> map = new HashMap<>();
@@ -24,6 +27,11 @@ public class PhoneBook {
 
     }
 
+    /**
+     * Method prints all the numbers in the exact name
+     * if it does not find prints an error message
+     * @param name the name that is searched for in the directory
+     */
     public static void printPhone(String name) {
 
         if (map.containsKey(name)) {
@@ -34,6 +42,12 @@ public class PhoneBook {
         }
     }
 
+    /**
+     * Method prints all numbers ignoredcase
+     * if it does not find prints an error message
+     *
+     * @param name the name that is searched for in the directory
+     */
     public static void printPhoneIgnoreCase(String name) {
         boolean flag = false;
         final int[] count = {1};
